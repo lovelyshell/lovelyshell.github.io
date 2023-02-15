@@ -2,6 +2,6 @@
 
 ## Library API
 
-### File [python](nodoc-File.html)
+File [(python)](nodoc-File.html)
 
-### Re [python](nodoc-Re.html)
+Re   [(python)](nodoc-Re.html)
