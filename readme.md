@@ -2,6 +2,6 @@
 
 ## Library API
 
-File [(python)](clean-nodoc-File.html)
+File [[python]](clean-nodoc-File.html)
 
 Re   [(python)](clean-nodoc-Re.html)
