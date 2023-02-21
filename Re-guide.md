@@ -1,14 +1,19 @@
 Re提供了三种构造函数来书写简单的单元:
+
 Re('az', fmt='cenum') 相当于 [az]
+
 Re('az', fmt='crange')	相当于 [a-z]
+
 Re('az', fmt='cseq') 相当于 'az'
+
 第二个参数fmt指定第一个参数的格式，分别是character enumeration, character range,character sequence. 这三种构造方式被包装成三个顶级函数, CEnum(), CRange(), CSeq().
 
 更复杂的表达结构由Re对象携带的方法和程序级别的操作符组合而成。他们分别是:
-repeat(m, n)		相当于  {m, n}
- |					相当于  |
- ~					相当于  [^]
- +					相当于  CONCAT
+
+- repeat(m, n)				相当于  {m, n}
+- |					相当于  |
+- ~					相当于  [^]
+- +					相当于  CONCAT
 这些操作符或方法总是返回一个新的Re对象。
 
 Example 1:
