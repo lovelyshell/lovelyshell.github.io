@@ -19,27 +19,24 @@ repeat(m, n)				相当于  {m, n}
 
 这些操作符或方法总是返回一个新的Re对象。
 
-Example 1:
-匹配单词
+Example 1: 匹配单词
+``` 
 w =  CRange('AZaz09')|CEnum('_') 
 word = w.repeat(1, Re.REPEAT_MAX)
-print(word.regex)
-[A-Za-z0-9_]+
-观测print的输出，你会发现的|操作被优化了，否则本应该是[A-Za-z0-9]|_。{1,}也被优化成+。了Re在构建正则表达式时会做一些优化，使得这个正则更像是手写出来的，一方面因为Re现在没有自己的正则引擎,必须转换成正则表达式，另一方面因为Re的一个设计考虑就是用户只想用它产生自己想要的正则表达式。
+```
 
-Example 2:
-匹配非单词
+Example 2: 匹配非单词
+``` 
 nonword = (~w).least(1)
-print(nonword.regex)
-[^A-Za-z0-9_]+
+```
 变量w来自于例子1, 上面的least()方法是repeat()的一个wrapper.
 
-Example 3:
-匹配vim临时文件名
+Example 3: 匹配vim临时文件名
+``` 
 r = CSeq('.') + (~CEnum('/')).least(1) + '.sw' + CRange('az')
-print(r.regex)
-linux文件名允许除'/'以外的所有字符，所以第二个部分的含义是匹配到至少一个文件名字符。
-上面出现的字面字符串'.sw'，在连接到左侧的Re对象时, 会被自动提升为CSeq('sw')。
+```
+上面第二个部分，linux文件名允许除'/'以外的所有字符，所以第二个部分的含义是匹配到至少一个文件名字符。
+第三个部分，裸露的'.sw'，在连接到左侧的Re对象时, 会被自动提升为CSeq('sw')类型。
 
 
 元字符和锚点在Re里以模板的方式提供，通过全局变量ReT来访问。
