@@ -1,10 +1,10 @@
 Re提供了三种构造函数来书写简单的单元:
 
-Re('az', fmt='cenum') 相当于 [az]
-
+``` 
+Re('az', fmt='cenum') 	相当于 [az]
 Re('az', fmt='crange')	相当于 [a-z]
-
-Re('az', fmt='cseq') 相当于 'az'
+Re('az', fmt='cseq') 	相当于 'az'
+```
 
 第二个参数fmt指定第一个参数的格式，分别是character enumeration, character range,character sequence. 这三种构造方式被包装成三个顶级函数, CEnum(), CRange(), CSeq().
 
