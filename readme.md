@@ -2,6 +2,6 @@
 
 ## Library API
 
-File [[python]](clean-nodoc-File.html)   [js]   [ruby]
+File [[python]](clean-nodoc-File.html)   [js](a.md)   [ruby]
 
 Re   [[python]](clean-nodoc-Re.html)   [js]   [ruby]
