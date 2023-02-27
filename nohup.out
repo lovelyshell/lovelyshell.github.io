@@ -1,0 +1,10 @@
+
+(nautilus:21935): Gtk-CRITICAL **: 17:21:11.973: gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(nautilus:21935): Gdk-CRITICAL **: 17:21:11.973: gdk_window_is_visible: assertion 'GDK_IS_WINDOW (window)' failed
+
+(nautilus:21935): Gdk-CRITICAL **: 17:21:11.973: gdk_window_show_internal: assertion 'GDK_IS_WINDOW (window)' failed
+
+(nautilus:21935): Gtk-CRITICAL **: 17:21:11.973: gtk_widget_set_opacity: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(nautilus:21935): Gtk-CRITICAL **: 17:21:11.973: gtk_widget_queue_draw: assertion 'GTK_IS_WIDGET (widget)' failed
