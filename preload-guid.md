@@ -5,14 +5,14 @@ preload.(py|js|rb ...)是导入shuiguolao库的入口文件，导入这个文件
 1 current
 
 current.user   
-:[User](./User-guid.md) 
+:[User](./User-guid.md)  
 current login user
 
 current.dir  
-:[File](./File-guid.md) 
+:[File](./File-guid.md)  
 current work directory
 
-2 cwd 
-:[File](./File-guide.md) 
+2 cwd  
+:[File](./File-guide.md)  
 current work directory, equilavant to current.dir
 
