@@ -2,17 +2,16 @@ preload.(py\|js\|rb ...)是导入shuiguolao库的入口文件，导入这个文�
 
 这个文件初始化了一些全局变量:
 
-1 current
-
+**current**  
 current.user   
-:[User](./User-guid.md)  
+:[User](./User-guide.md)  
 current login user
 
 current.dir  
-:[File](./File-guid.md)  
+:[File](./File-guide.md)  
 current work directory
 
-2 cwd  
+**cwd**  
 :[File](./File-guide.md)  
 current work directory, equilavant to current.dir
 
