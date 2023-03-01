@@ -1,5 +1,5 @@
 File是对linux泛文件设计中文件的抽象.
-File is an abstraction of file in the conception 'everything is file'.
+File is an abstraction of file in the unix concept 'everything is file'.
 
 1 Access file information  
 ```python
@@ -13,21 +13,17 @@ print(File('.').type)
 print(File('/bin/sh').type)
 ```
 
-
 2 Access file data  
 
-files of different types are accessed by different getters.
+data of different types of files are accessed by different getters.  
 
-.dict 
-
+.dict  
 data area of directory is described by a dictionary, subfile names as key, and corresponding File object as value.
 
-.target 
-
+.target  
 data area of symbol link is described by a File object reference, constructed from link path.
 
-.raw, .text, .lines 
-
+.raw, .text, .lines  
 data area of regular files can be read out as bytes, str or List, utf8 encoding required for the latter two.
 
 ```python  
@@ -49,11 +45,12 @@ while f.isLink():
     f=f.target
 ```
 
+3 Use setters
 ```python
-#通过setter直接设置对象的属性。
-f = File('/usr/bin/shuiguolao').target
 f.enable_setters()
-f.owner = current.user
+
+#Modify file permission
+f = File('/usr/bin/shuiguolao').target
 
 print(f.perm)
 p = f.perm
@@ -69,10 +66,19 @@ p.grp = 'rx'
 p.oth = 'rx'
 f.perm=p
 print('we changed! ', f.perm)
+
+
+#Modify file owner
+f.owner = User('root')
+print('we changed! ', f.owner)
+f.owner = current.user
+print('we are back! ', f.owner)
+
 f.disable_setters()
 ```
 
-
+3 Walk through directory tree
+通过dict我们可以很容易的遍历目录树，这个字典
 ```python
 #Example 递归寻找名为foorbar的文件
 def search_foobar(d):
