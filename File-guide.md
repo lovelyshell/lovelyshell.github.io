@@ -14,11 +14,16 @@ print(File('/bin/sh').type)
 
 
 2 Access file data  
+
 data area of files of different types are accessed by different getters.
+
 .dict 
+
 data area of directory is described by a dictionary, subfile names as key, and corresponding File object as value.
+
 .target 
 data area of symbol link is described by a File object reference, constructed from link path.
+
 .raw, .text, .lines 
 data area of regular files can be read out as bytes, str or List, utf8 encoding required for the latter two.
 
