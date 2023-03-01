@@ -1,4 +1,5 @@
-File是对linux泛文件设计中文件的抽象，这些文件共用一个类File描述，通过type字段区分他们。File类向上呈现静态的数据结构和组织，向下转换成低级的API进行操作。相较于很多语言库中已经出现的类似File的类，水果捞的File类从设计上考虑的应用场景也是日常的shell任务。
+File是对linux泛文件设计中文件的抽象.
+File is an abstraction of file in the conception 'everything is file'.
 
 1 Access file information  
 ```python
@@ -15,16 +16,18 @@ print(File('/bin/sh').type)
 
 2 Access file data  
 
-data area of files of different types are accessed by different getters.
+files of different types are accessed by different getters.
 
 .dict 
 
 data area of directory is described by a dictionary, subfile names as key, and corresponding File object as value.
 
 .target 
+
 data area of symbol link is described by a File object reference, constructed from link path.
 
 .raw, .text, .lines 
+
 data area of regular files can be read out as bytes, str or List, utf8 encoding required for the latter two.
 
 ```python  
@@ -36,6 +39,7 @@ for f in d.files:
     except:
         print('----------skip ', f.name)
 ```
+上面的d.files是另一个getter，相当于d.dict.values().
 
 ```python
 #get final target of a symbol link
