@@ -12,12 +12,11 @@ print(File('.').type)
 print(File('/bin/sh').type)
 ```
 
-2 Access file data  
-
+2 Access file content    
 Data of different types of files are accessed by different getters.  
 
 .dict  
-data area of directory is described as a dictionary, subfile names as key, and corresponding File object as value.
+data area of directory is described as a dictionary, subfile name as key, and corresponding File object as value.
 
 .target  
 data area of symbol link is described as a File object reference, constructed from link path.
@@ -26,7 +25,7 @@ data area of symbol link is described as a File object reference, constructed fr
 data area of regular files can be read out as bytes, str or List, utf8 encoding required for the latter two.
 
 ```python  
-#Example statistic file lines under current directory
+#Example file lines statistic under current directory
 d = File('.')
 for f in d.dict.values():
     try:
@@ -61,15 +60,16 @@ Or use static method File.R():
 File.R('.', lambda f,r: print(f.path) if f.name == 'foobar' else None)
 ```
 
-4 Use setters
+4 Modify file
+Class File has a serial of methods to modify file information and content, like chmod(), writelines(), but you may be more insterested in their setters.
 ```python
+#Modify file permission
+sgl = File('/usr/bin/shuiguolao')
+f = sgl.target
 f.enable_setters()
 
-#Modify file permission
-f = File('/usr/bin/shuiguolao').target
-print(f.perm)
+print('in the begining ', f.perm)
 p = f.perm
-
 p.grp.w = False
 p.oth.w = False
 f.perm = p
@@ -83,17 +83,30 @@ print('we are back! ', f.perm)
 f.perm = 0o755
 print('we changed! ', f.perm)
 
-
 #Modify file owner
 f.owner = User('root')
 print('we changed! ', f.owner)
+#fetch current user from global variable initialized by shuiguolao.
 f.owner = current.user
 print('we are back! ', f.owner)
 
 f.disable_setters()
 ```
+By design 
+Using setters or methods depends on you, 
 
 
 目录类型的File结构体，其数据区被解释成一个dict，其类型是Dict<str, File>，即以子文件名为键值，以对应File对象为值的一个字典。
 链接类型的文件，其数据区被解释成一个target
+
+
+
+
+
+
+
+
+
+
+
      
