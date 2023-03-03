@@ -14,7 +14,6 @@ print(File('/bin/sh').type)
 
 2 Access file content    
 Data of different types of files are accessed by different getters.  
-
 .dict  
 data area of directory is described as a dictionary, subfile name as key, and corresponding File object as value.
 
@@ -60,7 +59,7 @@ Or use static method File.R():
 File.R('.', lambda f,r: print(f.path) if f.name == 'foobar' else None)
 ```
 
-4 Modify file
+4 Modify file  
 Class File has a serial of methods to modify file information and content, like chmod(), writelines(), but you may be more insterested in their setters.
 ```python
 #Modify file permission
@@ -92,6 +91,8 @@ print('we are back! ', f.owner)
 
 f.disable_setters()
 ```
+
+setter是默认关闭的，因为setter
 By design 
 Using setters or methods depends on you, 
 

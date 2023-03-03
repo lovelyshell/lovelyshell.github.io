@@ -1,7 +1,7 @@
 # shuiguolao(水果捞) Document
 
 ## Library 
-ShuiGuoLao library can be viewed as a group of modules enhanced for shell-level programming, currently implemented on python, partially on nodejs.
+ShuiGuoLao library can be viewed as a group of modules enhanced for shell-level programming, currently implemented for python, partially for nodejs.
 
 shell-level task is usually small(can be one line interactive code), temporary, performance-irellavant. Popular script language library is designed for common usage and not suitable enough for such scene.
 
